@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript"></script>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+      }
+
+      p {
+        display: inline;
+      }
+
+      .loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite;
+        /* Safari */
+        animation: spin 2s linear infinite;
+      }
+
+      /* Safari */
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .table-container {
+        overflow-x: auto;
+        width: 100%;
+      }
+
+      .new-container {
+        margin-top: 10px;
+        padding: 16px 24px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: -apple-system, BlinkMacSystemFont,
+          Segoe UI, Helvetica, Arial, sans-serif,
+          Apple Color Emoji, Segoe UI Emoji, sans-serif;
+        font-size: 14px;
+        /* box-sizing: border-box; */
+      }
+
+      .bstack-table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ccc;
+      }
+
+      .bstack-header {
+        height: 25px;
+        text-align: center;
+        font-size: 14px;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+
+      .bstack-data {
+        height: 20px;
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-bottom: 0;
+        border-top: 0;
+      }
+
+      .session-name {
+        text-align: left;
+      }
+
+      .bstack-row:nth-child(even) {
+        background-color: #f5f5f5;
+      }
+
+      .no-report-para {
+        line-height: 1.5;
+        color: #333;
+      }
+
+      .strong-font-custom {
+        font-weight: 700;
+      }
+
+      .bullet-points {
+        list-style: disc;
+      }
+
+      .bullet-item {
+        color: #333;
+        margin: 8px 0;
+        line-height: 1.5;
+        margin-left: 24px;
+      }
+
+      .titlecase-data {
+        text-transform: capitalize;
+      }
+
+      .error-span {
+        font-family: monospace;
+        color: #333;
+        padding: 2px 8px;
+        border-radius: 4px;
+        border: 1px solid #aaa;
+        font-weight: 400;
+        font-size: 12px;
+        color: #dd4b4b;
+        border-color: #dd4b4b;
+      }
+    </style>
+</head>
+
+<body style="overflow: auto">
+<div
+        class="table-container"
+>
+    <h2 style="padding-top: 10px; padding-bottom: 10px">
+        BrowserStack Test Results
+    </h2>
+    <div id="resultsTab">
+        <div
+                id="resultsNum"
+                style="
+            margin-top: 10px;
+            margin-bottom: 15px;
+            font-size: 15px;
+          "
+        >
+            <p>
+                Displaying&nbsp;
+                <span id="totalResultsCount">16</span>
+                &nbsp;sessions.
+            </p>
+        </div>
+        <div style="border-style: solid;border-width: thin;">
+            <div style="align-self: center;" align="left">
+                <h3 style="text-align: center;">
+                    Build Name: <a href="https://automate.browserstack.com/dashboard/v2/builds/a73add0d1774c0be59ed370b75ca6b35085cacae" target="_blank">ILM_WEB_REGRESSION_AUTOMATION_BUILD  457</a>
+                </h3>
+            </div>
+        </div>
+        <table border="1" class="bstack-table">
+            <tr class="bstack-row">
+                <th class="bstack-header">Name</th>
+                <th class="bstack-header">Status</th>
+                <th class="bstack-header">REST API</th>
+                <th class="bstack-header">Browser/Device</th>
+                <th class="bstack-header">OS</th>
+                <th class="bstack-header">Duration</th>
+                <th class="bstack-header">Created At</th>
+            </tr>
+            <tr class="bstack-row">
+<td class="bstack-data session-name"><a href="https://automate.browserstack.com/builds/a73add0d1774c0be59ed370b75ca6b35085cacae/sessions/4feb846a77ff5f24b9115f10cf974953b58d3bb3?auth_token=f0d48a908ef2407d739f8236d3884dac9b3a00625794a99627829399c87eda10" target="_blank">testsuit.DocumentSearch.DocumentSavedSearchesTest-ToolsDocument_Searches_Delete_selected_search_TC_02</a></td>
+<td class="bstack-data" style="color:green;"><font color="green">Completed</font></td>
+<td class="bstack-data" style="color:green;"><font color="green">Passed</font></td><td align="center" class="bstack-data">Edge 138.0</td> <td align="center" class="bstack-data">Windows 10</td> <td align="center" class="bstack-data">209</td> <td align="center" class="bstack-data">05 Jul 2025, 19:45 UTC</td> </tr><tr class="bstack-row">
+<td class="bstack-data session-name"><a href="https://automate.browserstack.com/builds/a73add0d1774c0be59ed370b75ca6b35085cacae/sessions/7c2fdac317d3a74a8466c1c3c491a949b953e753?auth_token=885abed99b732c191218b32295712c6fe3d0af68e053a2261f6c9f52aff401a5" target="_blank">testsuit.DocumentSearch.DocumentSavedSearchesTest-ToolsDocument_Searches_Delete_selected_search_TC_02</a></td>
+<td class="bstack-data" style="color:green;"><font color="green">Completed</font></td>
+<td class="bstack-data" style="color:green;"><font color="green">Passed</font></td><td align="center" class="bstack-data">Edge 138.0</td> <td align="center" class="bstack-data">Windows 10</td> <td align="center" class="bstack-data">566</td> <td align="center" class="bstack-data">05 Jul 2025, 19:36 UTC</td> </tr><tr class="bstack-row">
+<td class="bstack-data session-name"><a href="https://automate.browserstack.com/builds/a73add0d1774c0be59ed370b75ca6b35085cacae/sessions/e7f469017f9276429ec659a0fc9e6c356864faad?auth_token=e6d7945e7034e557fa5a56ebd83f0bd0cf2a5b438b9542c2c20eea8720c92761" target="_blank">testsuit.DocumentSearch.DocumentSavedSearchesTest-ToolsDocument_Searches_Delete_selected_search_TC_02</a></td>
+<td class="bstack-data" style="color:green;"><font color="green">Completed</font></td>
+<td class="bstack-data" style="color:green;"><font color="green">Passed</font></td><td align="center" class="bstack-data">Edge 138.0</td> <td align="center" class="bstack-data">Windows 10</td> <td align="center" class="bstack-data">687</td> <td align="center" class="bstack-data">05 Jul 2025, 19:25 UTC</td> </tr><tr class="bstack-row">
+<td class="bstack-data session-name"><a href="https://automate.browserstack.com/builds/a73add0d1774c0be59ed370b75ca6b35085cacae/sessions/0ef5521e771176324ea4896854024f410705f4a1?auth_token=888b79ad9a3e2e0633b75726fbec0761e15ba94c375977d9863e6375462b19bb" target="_blank">testsuit.DocumentSearch.DocumentSavedSearchesTest-ToolsDocument_Searches_Delete_selected_search_TC_02</a></td>
+<td class="bstack-data" style="color:green;"><font color="green">Completed</font></td>
+<td class="bstack-data" style="color:green;"><font color="green">Passed</font></td><td align="center" class="bstack-data">Edge 138.0</td> <td align="center" class="bstack-data">Windows 10</td> <td align="center" class="bstack-data">332</td> <td align="center" class="bstack-data">05 Jul 2025, 19:19 UTC</td> </tr><tr class="bstack-row">
+<td class="bstack-data session-name"><a href="https://automate.browserstack.com/builds/a73add0d1774c0be59ed370b75ca6b35085cacae/sessions/82fbe3e66ef5e775939e68d32b49362069d84eee?auth_token=5969635e19cb4b7d3e24409878d61944d30939e947532f983a8a649a4b9bbacd" target="_blank">testsuit.DocumentSearch.DocumentSavedSearchesTest-ToolsDocument_Searches_Delete_selected_search_TC_02</a></td>
+<td class="bstack-data" style="color:#eea326;"><font color="#eea326">Timeout</font></td>
+<td class="bstack-data" style="color:green;"><font color="green">Passed</font></td><td align="center" class="bstack-data">Edge 138.0</td> <td align="center" class="bstack-data">Windows 10</td> <td align="center" class="bstack-data">302</td> <td align="center" class="bstack-data">05 Jul 2025, 19:15 UTC</td> </tr><tr class="bstack-row">
+<td class="bstack-data session-name"><a href="https://automate.browserstack.com/builds/a73add0d1774c0be59ed370b75ca6b35085cacae/sessions/8dacd9c6c64c215a41e36bbde065049309e6e0dc?auth_token=a5745f2b66983b80b3819864c3d82f42fc575b7d2d4ad97adec278d44ebb2795" target="_blank">testsuit.ParcelNotes.AddParcelNotesTest-DeleteNotes_TC_07</a></td>
+<td class="bstack-data" style="color:green;"><font color="green">Completed</font></td>
+<td class="bstack-data" style="color:red;"><font color="red">Failed</font></td><td align="center" class="bstack-data">Edge 138.0</td> <td align="center" class="bstack-data">Windows 10</td> <td align="center" class="bstack-data">254</td> <td align="center" class="bstack-data">05 Jul 2025, 19:11 UTC</td> </tr><tr class="bstack-row">
+<td class="bstack-data session-name"><a href="https://automate.browserstack.com/builds/a73add0d1774c0be59ed370b75ca6b35085cacae/sessions/394c2aa7af60ea2ab2049b923dcc1fc52969822c?auth_token=1616e6164c7ce82909b692df3ed3d79bda2089f1d6e828c5a2973a4d42258032" target="_blank">testsuit.ParcelNotes.AddParcelNotesTest-DeleteNotes_TC_07</a></td>
+<td class="bstack-data" style="color:green;"><font color="green">Completed</font></td>
+<td class="bstack-data" style="color:red;"><font color="red">Failed</font></td><td align="center" class="bstack-data">Edge 138.0</td> <td align="center" class="bstack-data">Windows 10</td> <td align="center" class="bstack-data">294</td> <td align="center" class="bstack-data">05 Jul 2025, 19:06 UTC</td> </tr><tr class="bstack-row">
+<td class="bstack-data session-name"><a href="https://automate.browserstack.com/builds/a73add0d1774c0be59ed370b75ca6b35085cacae/sessions/d4844630c1c4b72a1e29c01264360a34da74bf11?auth_token=32ff9d7c114d4519f8c1220efc642f0fd2d279c7d92f87478aa91162bce4108e" target="_blank">testsuit.ParcelNotes.AddParcelNotesTest-DeleteNotes_TC_07</a></td>
+<td class="bstack-data" style="color:green;"><font color="green">Completed</font></td>
+<td class="bstack-data" style="color:red;"><font color="red">Failed</font></td><td align="center" class="bstack-data">Edge 138.0</td> <td align="center" class="bstack-data">Windows 10</td> <td align="center" class="bstack-data">218</td> <td align="center" class="bstack-data">05 Jul 2025, 19:03 UTC</td> </tr><tr class="bstack-row">
+<td class="bstack-data session-name"><a href="https://automate.browserstack.com/builds/a73add0d1774c0be59ed370b75ca6b35085cacae/sessions/e133e2b76c9ba3740803a041dd320142846ef2b2?auth_token=640711566e7d427a5083a7eee2cc8226b4a535e83a780bf7e31e81c4b752119d" target="_blank">testsuit.ParcelNotes.AddParcelNotesTest-DeleteNotes_TC_07</a></td>
+<td class="bstack-data" style="color:green;"><font color="green">Completed</font></td>
+<td class="bstack-data" style="color:red;"><font color="red">Failed</font></td><td align="center" class="bstack-data">Edge 138.0</td> <td align="center" class="bstack-data">Windows 10</td> <td align="center" class="bstack-data">556</td> <td align="center" class="bstack-data">05 Jul 2025, 18:53 UTC</td> </tr><tr class="bstack-row">
+<td class="bstack-data session-name"><a href="https://automate.browserstack.com/builds/a73add0d1774c0be59ed370b75ca6b35085cacae/sessions/47c8b197c8e54f74a455dd11362ef080c88ab4e8?auth_token=e05a4b533412c2cda5ae7d1abc3d429ce4405895d3a67dfbab10a8152bd439a7" target="_blank">testsuit.ParcelNotes.AddParcelNotesTest-DeleteNotes_TC_07</a></td>
+<td class="bstack-data" style="color:green;"><font color="green">Completed</font></td>
+<td class="bstack-data" style="color:red;"><font color="red">Failed</font></td><td align="center" class="bstack-data">Edge 138.0</td> <td align="center" class="bstack-data">Windows 10</td> <td align="center" class="bstack-data">1952</td> <td align="center" class="bstack-data">05 Jul 2025, 18:21 UTC</td> </tr><tr class="bstack-row">
+<td class="bstack-data session-name"><a href="https://automate.browserstack.com/builds/a73add0d1774c0be59ed370b75ca6b35085cacae/sessions/d9cfd2b81ecb85ace419b7383b71448dce6878e7?auth_token=159979ab56bdcd495347246c0d929d2a0b9587228487652de6cca4a88d9061af" target="_blank">testsuit.ParcelNotes.AddParcelNotesTest-DeleteNotes_TC_07</a></td>
+<td class="bstack-data" style="color:green;"><font color="green">Completed</font></td>
+<td class="bstack-data" style="color:red;"><font color="red">Failed</font></td><td align="center" class="bstack-data">Edge 138.0</td> <td align="center" class="bstack-data">Windows 10</td> <td align="center" class="bstack-data">61</td> <td align="center" class="bstack-data">05 Jul 2025, 18:20 UTC</td> </tr><tr class="bstack-row">
+<td class="bstack-data session-name"><a href="https://automate.browserstack.com/builds/a73add0d1774c0be59ed370b75ca6b35085cacae/sessions/fb3ccf09e9b8f70eeb459799b2916c081745f426?auth_token=bb521f79c7179c331f12a9ae418788e8f2c05d2ef123e3c5ca33a0f8e3c93e42" target="_blank">testsuit.ParcelNotes.AddParcelNotesTest-DeleteNotes_TC_07</a></td>
+<td class="bstack-data" style="color:green;"><font color="green">Completed</font></td>
+<td class="bstack-data" style="color:red;"><font color="red">Failed</font></td><td align="center" class="bstack-data">Edge 138.0</td> <td align="center" class="bstack-data">Windows 10</td> <td align="center" class="bstack-data">700</td> <td align="center" class="bstack-data">05 Jul 2025, 18:08 UTC</td> </tr><tr class="bstack-row">
+<td class="bstack-data session-name"><a href="https://automate.browserstack.com/builds/a73add0d1774c0be59ed370b75ca6b35085cacae/sessions/0d60efbe74d5d79721ec8cfc8be147c0c9c48fe0?auth_token=1aa02a4f64e7440d4cbe5e64a3f61cd79f47daaaddea53cf3bfbff2e5fceed5d" target="_blank">testsuit.ParcelNotes.AddParcelNotesTest-DeleteNotes_TC_07</a></td>
+<td class="bstack-data" style="color:green;"><font color="green">Completed</font></td>
+<td class="bstack-data" style="color:red;"><font color="red">Failed</font></td><td align="center" class="bstack-data">Edge 138.0</td> <td align="center" class="bstack-data">Windows 10</td> <td align="center" class="bstack-data">360</td> <td align="center" class="bstack-data">05 Jul 2025, 18:02 UTC</td> </tr><tr class="bstack-row">
+<td class="bstack-data session-name"><a href="https://automate.browserstack.com/builds/a73add0d1774c0be59ed370b75ca6b35085cacae/sessions/d28a65144286cc38f1b917418888c9fe65d3afea?auth_token=3ced4705eb98f43190fd9f5985b676d6b57e1cbc6f34dd4a7ddce7a76bed6578" target="_blank">testsuit.ParcelNotes.AddParcelNotesTest-DeleteNotes_TC_07</a></td>
+<td class="bstack-data" style="color:green;"><font color="green">Completed</font></td>
+<td class="bstack-data" style="color:red;"><font color="red">Failed</font></td><td align="center" class="bstack-data">Edge 138.0</td> <td align="center" class="bstack-data">Windows 10</td> <td align="center" class="bstack-data">950</td> <td align="center" class="bstack-data">05 Jul 2025, 17:46 UTC</td> </tr><tr class="bstack-row">
+<td class="bstack-data session-name"><a href="https://automate.browserstack.com/builds/a73add0d1774c0be59ed370b75ca6b35085cacae/sessions/945ea33e70a9212a655bcc9009dc0296e876834a?auth_token=a1566a07bc23f8a525d02d30ee886d2a459f9dea1dced85b4ca8c4475d33f951" target="_blank">testsuit.ProjectContact.AddContactTest-DeleteContact_TC_03</a></td>
+<td class="bstack-data" style="color:green;"><font color="green">Completed</font></td>
+<td class="bstack-data" style="color:green;"><font color="green">Passed</font></td><td align="center" class="bstack-data">Edge 138.0</td> <td align="center" class="bstack-data">Windows 10</td> <td align="center" class="bstack-data">1336</td> <td align="center" class="bstack-data">05 Jul 2025, 17:24 UTC</td> </tr><tr class="bstack-row">
+<td class="bstack-data session-name"><a href="https://automate.browserstack.com/builds/a73add0d1774c0be59ed370b75ca6b35085cacae/sessions/b88492cef803372964d5768875369a0e94d36cba?auth_token=c3572f4db4589d8c42dacd9f5672d1afdd07a8c2f446e7ffc3a8028ab9348dbd" target="_blank">testsuit.adminSecurity.UserRole_TemplatePermissionTest-templatePermission_UserRole_TC_03</a></td>
+<td class="bstack-data" style="color:green;"><font color="green">Completed</font></td>
+<td class="bstack-data" style="color:green;"><font color="green">Passed</font></td><td align="center" class="bstack-data">Edge 138.0</td> <td align="center" class="bstack-data">Windows 10</td> <td align="center" class="bstack-data">1382</td> <td align="center" class="bstack-data">05 Jul 2025, 17:01 UTC</td> </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

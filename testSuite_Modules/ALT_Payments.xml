@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite">
+
+	<parameter name="env" value="${env}" />
+
+    <test name="GlobalTemplate">
+        <classes>
+            <class name="testsuit.GlobalTemplate.ProjectGlobalTemplateTest"/>  
+       </classes>
+    </test>
+    
+    <test name="ProjectPayTemplate">
+        <classes>
+            <class name="testsuit.ProjectPayTemplate.PaymentTermsSummaryTest"/>  
+        </classes>
+    </test>
+    
+	<test name="AgreementManager">
+		<classes>
+			 <class name="testsuit.agreementManager.AgreementInformationTest" />  
+			<class name="testsuit.agreementManager.AgreementNoteTest" />
+			<class name="testsuit.agreementManager.OwnershipAndAcresPrecisionTest" />
+			<class name="testsuit.agreementManager.TemplateAssociationFormTest" />
+			
+		</classes>
+	</test>
+	
+	<test name="AgreementDocGen">
+		<classes>
+			<class name="testsuit.agreementManager.DocumentGenerationTest" />
+		</classes>
+	</test>
+	
+	<test name="ProjectPaymentManager">
+           <classes>
+                <class name="testsuit.ProjectPaymentManager.ProjectPaymentManagerTest"/> 
+        </classes>
+       </test>
+       
+       <test name="AdditionalPayment">
+           <classes>
+                <class name="testsuit.agreementManager.AdditionalPaymentTest" />
+                <class name="testsuit.ProjectPaymentManager.CheckBatchApprovalTest" />
+        </classes>
+       </test>
+       
+       <test name="CustomField_PaymentTags">
+          <classes>
+                <class name="testsuit.agreementManager.GeneratePaymentTagsTest" />
+        </classes>
+       </test>
+       
+	 <test name="RoyaltyPayment">
+		<classes>
+			 <class name="testsuit.RoyaltyPayment.RoyaltyPaymentTest" /> 
+		</classes>
+	</test>
+	
+	
+</suite> <!-- Suite -->
+

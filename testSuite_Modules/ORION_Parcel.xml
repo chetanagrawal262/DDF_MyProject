@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite">
+
+	<parameter name="env" value="${env}" />
+
+     <test name="ParcelDetails">
+		<classes>
+			 <class name="testsuit.ParcelDetails.ParcelInformation_AddNewParcelTest" />
+			 <class name="testsuit.ParcelDetails.WorkflowDocumentsTest" />
+			<class name="testsuit.Title.TitleTabTest" /> 
+		</classes>
+	</test>
+	
+	<test name="ParcelDocGen">
+		<classes>
+			 <class name="testsuit.ParcelDocumentGeneration.GenerateDocumentTest" />
+		</classes>
+	</test>
+	
+	<test name="CustomControl">
+        <classes>
+			 <class name="testsuit.CustomControl.TabSpecificCustomControlFieldsTestALT"/>
+             <class name="testsuit.CustomControl.CustomControlFieldsTestALT"/> 
+        </classes>
+    </test>
+   
+	
+</suite> <!-- Suite -->
+

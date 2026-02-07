@@ -1,0 +1,123 @@
+package com.base;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+import com.aventstack.extentreports.Status;
+import com.util.ExcelUtils;
+import com.util.ReadPropertyFile;
+import extentReports.ExtentTestManager;
+
+public class BasePage extends CommonConstant {
+
+	public WebDriver driver;
+	public String browserName;
+	public Properties prop;
+	public Logger logger = Logger.getLogger("TestBase");
+	static ReadPropertyFile readPro = new ReadPropertyFile();
+	public static String projectDir = System.getProperty("user.dir");
+	Map<String, String> map = new HashMap<String, String>();
+	
+
+	// Initialization of the properties files
+	public BasePage() {
+		FileInputStream fi;
+		try {
+			prop = new Properties();
+			fi = new FileInputStream(System.getProperty("user.dir") + "/config.properties");
+			prop.load(fi);
+
+		} catch (FileNotFoundException e) {
+			System.out.println("Exception from test Base Construction");
+			logger.error("properties files are not found " + e);
+		} catch (IOException e) {
+			System.out.println("Exception from test Base Construction");
+			logger.error("Not able to Read properties File " + e);
+			e.printStackTrace();
+		}
+	}
+
+	@BeforeTest(alwaysRun = true)
+	@Parameters({"env"})
+	
+	public WebDriver initialization(String env) throws Exception {
+		System.out.println("Inside Initialization method");
+
+		map = ExcelUtils.getRowFromRowNumber(prop.getProperty(Excel.LOGIN_TEST_DATA), Excel.Login, env);
+		setBrowser(map,env);
+		return driver;
+	}
+
+	@AfterTest(alwaysRun = true)
+	public void tearDown() {
+		System.out.println("Inside tear down");
+		driver.manage().deleteAllCookies();
+		driver.close();
+		driver.quit();
+		System.out.println("executed tear down");	
+		
+	}
+
+
+	public synchronized void log(String message) {
+		ExtentTestManager.info(message);
+	}
+	
+	public synchronized void log(String message, Status status) {
+		ExtentTestManager.log(status, message);
+	}
+
+	public WebDriver getDriver() {
+		return DriverFactory.getTLDriver();
+	}
+
+	public void navigateToApplication(String url) {
+		driver.get(Environment.getEnvironment());
+		log("Navigating to : " + url);
+//		driver.navigate().refresh();
+	}
+	
+	public void setBrowser(Map<String, String> map,String env) {
+		if(map.get(Excel.browser) != null) {
+			browserName = map.get(Excel.browser);
+		} else {
+			browserName = "chrome";
+		}
+		if(env != null) {
+			//Environment.setEnvironment(env);
+			Environment.setEnvironment(map.get(Excel.ENV));
+			
+			environment = env;
+			clientName=map.get(Excel.TestCase);
+		System.out.println("Client : "+clientName);
+		} else {
+			throw new RuntimeException("Please provide environment in testng.xml");
+		}
+		DriverFactory.setTLDriver(browserName);
+		driver = getDriver();
+		driver.manage().window().maximize();
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		try {
+			appURL = Environment.getEnvironment();
+		} catch (Exception e) {
+			System.out.println("Please provide URL");
+		}
+		sheetName = prop.getProperty("EXCEL_TEST_DATA");
+		
+	}
+}

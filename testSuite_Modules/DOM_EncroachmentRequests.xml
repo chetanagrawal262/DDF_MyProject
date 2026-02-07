@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite">
+
+	<parameter name="env" value="${env}" />
+
+     <test name="EncroachmentRequests">
+		<classes>
+			  <class name="testsuit.EncroachmentRequests.AddNewTicketTest" />
+			  <class name="testsuit.EncroachmentRequests.DocumentTest" /> 
+			   <class name="testsuit.CustomerOutreach.AddCustomerOutreachNotesTest" />
+		</classes>
+	</test>
+	
+	<test name="EncroachmentRequests_DocGen">
+		<classes>
+			  <class name="testsuit.EncroachmentRequests.EncroachmentGenerateDocumentTest" /> 
+		</classes>
+	</test>
+	
+	
+</suite> <!-- Suite -->
+

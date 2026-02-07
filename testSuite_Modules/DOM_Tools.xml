@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite">
+
+	<parameter name="env" value="${env}" />
+
+	
+    <test name="ApplicationLevelWorkflow">
+		<classes>
+			   <class name="testsuit.ApplicationLevelWorkflow.CreateApplicationRequestWFTest" /> 
+		</classes>
+	</test>
+	
+	<test name="ToolsMyDashboard">
+		<classes>
+			 <class name="testsuit.ToolsMyDashboard.MyDashboardTest" />
+			<class name="testsuit.ToolsMyDashboard.ToolMyDashboardTest" /> 
+		</classes>
+	</test>
+	
+	<test name="ProjectSearch">
+		<classes>
+			 <class name="testsuit.ProjectSearch.ProjectSavedSearchesTest" /> 
+		</classes>
+	</test>
+	
+	<test name="ParcelSearch">
+		<classes>
+			 <class name="testsuit.ParcelSearch.ParcelSavedSearchesTest" /> 
+			 <class name="testsuit.ParcelSearch.ParcelSearchesTestDOM" />
+		</classes>
+	</test>
+	 
+	<test name="LandownerSearch">
+		<classes>
+			 <class name="testsuit.LandownerSearch.LandownerSavedSearchesTest" />
+			 <class name="testsuit.LandownerSearch.LandownerMergeTest" />    
+		</classes>
+	</test>
+	
+	<test name="DocumentSearch">
+		<classes>
+			 <class name="testsuit.DocumentSearch.DocumentSavedSearchesTest" /> 
+		</classes>
+	</test>
+	
+	 <test name="Learn">
+		<classes>
+			 <class name="testsuit.ToolsMyDashboard.HelpDocumentTest" /> 
+		</classes>
+	</test>
+	
+	<test name="CustomControl">
+        <classes>
+			<class name="testsuit.CustomControl.SearchableCustomControlFieldsTest"/> 
+        </classes>
+    </test>
+    
+    <test name="ManagePreferences">
+		<classes>
+			 <class name="testsuit.ManagePreferences.MyPreferencesManagePreferencesTest" /> 
+		</classes>
+	</test>
+	
+</suite> <!-- Suite -->
+

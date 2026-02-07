@@ -1,0 +1,23 @@
+package com.base;
+
+public class CommonConstant {
+	public static int PAGE_LOAD_TIMEOUT = 60;
+	public static int IMPLICIT_WAIT = 15;
+	
+	public static String appURL, environment, clientName;
+	public static boolean isALT = false;
+	public static boolean isDOT = false;
+	public static boolean isROW = false;
+	
+	public static String addedName;
+	public static String addedCost;
+	
+	public static String sheetName;
+	public static String NA = "NA";
+	
+	public static final String alt = "alt";
+	public static final String dot = "dot";
+	public static final String row = "row";
+	
+	
+}

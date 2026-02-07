@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite">
+
+	<parameter name="env" value="${env}" />
+
+
+     <test name="AdministrationSecurity">
+		<classes>
+			 <class name="testsuit.adminSecurity.UserAccount_AddNewUserTest" />
+			<class name="testsuit.adminSecurity.ManageUser_AddNewUserTest" />
+			<class name="testsuit.adminSecurity.UserRole_PagePermissionTest" />
+			<class name="testsuit.adminSecurity.UserRole_SpecialPermissionTest" />
+			<class name="testsuit.adminSecurity.UserRole_TemplatePermissionTest" /> 
+			 
+		</classes>
+	</test>
+	
+	<test name="ProjectDetails">
+		<classes>
+			  <class name="testsuit.Project.AddProjectTest" />
+			 <class name="testsuit.Project.AddProjectAssignmentTest" />
+			<class name="testsuit.Project.AddKeyDateTest" />
+			<class name="testsuit.Project.AddProjectPermitTest" />
+			<class name="testsuit.Project.AddOpertaingCompanyTest" />
+			<class name="testsuit.Project.AddProjectWorkflowTest" />
+			<class name="testsuit.ProjectDocuments.AddDocumentTest"/>
+			<class name="testsuit.ProjectNotes.AddProjectNotesTest"/>
+			<class name="testsuit.ProjectContact.AddContactTest"/>
+			<class name="testsuit.TicketAssociation.AddNewTicketTest"/> 
+		</classes>
+	</test>
+	
+	<test name="ProjectDocGen">
+		<classes>
+			<!--<class name="testsuit.ProjectDocumentGeneration.ProjectGenerateDocumentTest"/>-->
+		</classes>
+	</test>
+	
+	<test name="ParcelDetails">
+		<classes>
+			 <class name="testsuit.ParcelDetails.Valard_ParcelInformation_Test" />
+			<class name="testsuit.ParcelNotes.AddParcelNotesTest" /> 
+		</classes>
+	</test>
+	
+	<test name="ParcelDocGen">
+		<classes>
+			 <!--<class name="testsuit.ParcelDocumentGeneration.GenerateDocumentTest" />-->
+		</classes>
+	</test>
+	
+	<test name="GlobalTemplate">
+        <classes>
+            <class name="testsuit.GlobalTemplate.ProjectGlobalTemplateTest"/> 
+        </classes>
+    </test>
+    
+    <test name="ProjectPayTemplate">
+        <classes>
+            <class name="testsuit.ProjectPayTemplate.PaymentTermsSummaryTest"/> 
+        </classes>
+    </test>
+    
+    <test name="AgreementManager">
+		<classes>
+			  <class name="testsuit.agreementManager.AgreementInformationTest" />   
+			<class name="testsuit.agreementManager.AgreementNoteTest" />
+			
+		</classes>
+	</test>
+	
+	<test name="AgreementManagerDocGen">
+		<classes>
+			<!--<class name="testsuit.agreementManager.DocumentGenerationTest" />-->
+		</classes>
+	</test>
+	
+	<test name="ProjectPaymentManager">
+        <classes>
+            <class name="testsuit.ProjectPaymentManager.ProjectPaymentManagerTest"/> 
+        </classes>
+    </test>
+    
+    <test name="AdministrationTemplate">
+		<classes>
+			 <class name="testsuit.AdministrationTemplate.AddNewTemplateTest" /> 
+		</classes>
+	</test>
+	
+    <test name="AdministrationConfiguration">
+		<classes>
+			 <class name="testsuit.AdministrationConfiguration.PermitAgenciesTest" />
+			<class name="testsuit.AdministrationConfiguration.OperatingCompaniesTest" />
+			<class name="testsuit.AdministrationConfiguration.ContractCompaniesTest" />
+			<class name="testsuit.AdministrationConfiguration.PredefinedClausesTest" /> 
+		</classes>
+	</test>
+	
+	<test name="Administration_IndexManager">
+		<classes>
+			 <class name="testsuit.Administration_IndexManager.IndexManagerTest" /> 
+		</classes>
+	</test>
+	
+	<test name="Administration_ReportAdministration">
+		<classes>
+			 <class name="testsuit.Administration_ReportAdministration.ReportManagementTest" />
+			<class name="testsuit.Administration_ReportAdministration.ReportSchedulerTest" />
+			<class name="testsuit.Administration_ReportAdministration.ReportConfigurationTest" /> 
+		</classes>
+	</test>
+	
+	<test name="ProjectGroup">
+		<classes>
+			 <class name="testsuit.ProjectGroup.AddProjectGroupTest" /> 
+		</classes>
+	</test>
+	
+    <test name="ApplicationLevelWorkflow">
+		<classes>
+			   <class name="testsuit.ApplicationLevelWorkflow.CreateApplicationRequestWFTest" /> 
+		</classes>
+	</test>
+	
+	<test name="ToolsMyDashboard">
+		<classes>
+			 <class name="testsuit.ToolsMyDashboard.MyDashboardTest" />
+			<class name="testsuit.ToolsMyDashboard.ToolMyDashboardTest" /> 
+		</classes>
+	</test>
+	
+	<test name="ProjectSearch">
+		<classes>
+			 <class name="testsuit.ProjectSearch.ProjectSavedSearchesTest" /> 
+		</classes>
+	</test>
+	
+	<test name="ParcelSearch">
+		<classes>
+			 <class name="testsuit.ParcelSearch.ParcelSavedSearchesTest" /> 
+		</classes>
+	</test>
+	
+	 <test name="LeaseSearch">
+		<classes>
+			 <class name="testsuit.AgreementSearch.LeaseSavedSearchesTest" />  
+		</classes>
+	</test>
+	
+	<test name="LandownerSearch">
+		<classes>
+			 <class name="testsuit.LandownerSearch.LandownerSavedSearchesTest" />    
+		</classes>
+	</test>
+	
+	<test name="DocumentSearch">
+		<classes>
+			 <class name="testsuit.DocumentSearch.DocumentSavedSearchesTest" /> 
+		</classes>
+	</test>
+	
+	 <test name="HelpDocuments">
+		<classes>
+			 <class name="testsuit.ToolsMyDashboard.HelpDocumentTest" /> 
+		</classes>
+	</test>
+	
+	<test name="CustomControl">
+        <classes>
+             <!--<class name="testsuit.CustomControl.CustomControlFieldsTestROW"/> -->
+        </classes>
+    </test>
+    
+    <test name="ManagePreferences">
+		<classes>
+			 <class name="testsuit.ManagePreferences.MyPreferencesManagePreferencesTest" /> 
+		</classes>
+	</test>
+	
+</suite> <!-- Suite -->
+

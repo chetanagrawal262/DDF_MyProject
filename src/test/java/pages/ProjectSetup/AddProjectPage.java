@@ -1,0 +1,696 @@
+package pages.ProjectSetup;
+
+import java.util.Map;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import com.aventstack.extentreports.Status;
+import com.base.BasePage;
+import com.base.Excel;
+import com.util.CommonFunction;
+import com.util.TestUtil;
+
+public class AddProjectPage extends BasePage {
+	TestUtil util;
+	CommonFunction commonFunction;
+
+	public AddProjectPage(WebDriver driver) {
+		this.driver = driver;
+		util = new TestUtil(driver);
+		commonFunction = new CommonFunction(driver);
+	}
+
+	//On Page
+	By txtProjectName = By.xpath("//input[contains(@id,'radPrjName')][1]");
+	By txtProjectNamePopUp = By.xpath("//input[contains(@id,'prjInfo_radPrjName')][1]");
+	By txtProjectNumber = By.xpath("(//input[contains(@id,'radPrjNum')])[1]");
+	By txtProjectNumberPopUp = By.xpath("(//input[contains(@id,'prjInfo_radPrjNum')])[1]");
+	By drpProjectType = By.xpath("(//input[contains(@id,'ProjType')])[1]");
+	By drpProjectTypePopUp = By.xpath("(//input[contains(@id,'prjInfo_yalProjType_radYALDropDownList_Input')])[1]");
+	By txtAbbreviation = By.xpath("//input[contains(@id,'OBJPROJECTINFO_ABBREVIATION')][1] | //input[contains(@id,'OBJPROJECTINFO_rtbPRJNO_1')][1]");
+	By txtAbbreviationPopUp = By.xpath("//input[contains(@id,'prjInfo_ABBREVIATION')][1]");
+	By drpArea = By.xpath("//input[contains(@id,'yalPrjArea_radYALDropDownList_Input')]");
+	By drpAreaPopUp = By.xpath("//input[contains(@id,'prjInfo_yalPrjArea_radYALDropDownList_Input')]");
+	By btnSave = By.xpath("//input[contains(@id,'btnSaveProject')]");
+	By btnInsertAndClose = By.xpath("//input[contains(@id,'prjInfo_btnSaveAndClose')]");
+	By drpTemporaryRow = By.xpath("//input[contains(@name,'yalTempROWWidth$radYALDropDownList')]");
+	By drpTemporaryRowPopUp = By.xpath("//input[contains(@name,'prjInfo$yalTempROWWidth$radYALDropDownList')]");
+	By drpPermanentRow = By.xpath("//input[contains(@name,'yalPermROWWidth$radYALDropDownList')]");
+	By drpPermanentRowPopUp = By.xpath("//input[contains(@name,'prjInfo$yalPermROWWidth$radYALDropDownList')]");
+	By drpUnitRow = By.xpath("//input[contains(@name,'PERMROW_WIDTH_UNIT$radYALDropDownList')]");
+	By drpUnitRowPopUp = By.xpath("//input[contains(@name,'PERMROW_WIDTH_UNIT$radYALDropDownList')]");
+	By drpCompanyCode = By.xpath("//span[text()='SAP Company Code:']/..//input[@type='text']");
+	By drpCompanyCodePopUp = By.xpath("//input[contains(@id,'prjInfo_customFields2_331_YALComboBox_Input')]");
+	By drpPayingEntity = By.xpath("//span[text()='SAP Paying Entity:']/..//input[@type='text']");
+	By drpPayingEntityPopUp = By.xpath("//input[contains(@id,'prjInfo_customFields2_372_YALComboBox_Input')]");
+	By drpProjectEntity = By.xpath("//span[text()='SAP Project Entity:']/..//input[@type='text']");
+	By drpWBS = By.xpath("//span[text()='Project/WBS:']/..//input[@type='text']");
+	By drpBoardResolution = By.xpath("//input[contains(@id,'OBJPROJECTINFO_customFieldsProjectInfo_200_YALComboBox_Input')]");
+	By drpProjectEntityPopUp = By.xpath("//input[contains(@id,'prjInfo_customFields2_373_YALComboBox_Input')]");
+
+	By archieveOk = By.xpath("//a[contains(@onClick,'confirm')][1]");
+	By archieveOkbutton = By.xpath("(//div[contains(@id,'confirm')])[1]");
+	By btnUnArchieve = By.xpath("//input[@name='ctl00$ConPHRightTop$radPrjPanels$i0$i0$OBJPROJECTINFO$btnUnarchive']");
+	By btnUnArchievedot = By
+			.xpath("//input[@name='ctl00$ConPHRightTop$PRDT_UC$radPrjPanels$i0$i0$OBJPROJECTINFO$btnUnarchive']");
+	By drpClient = By.xpath("//input[contains(@id,'yalPrjArea_radYALDropDownList_Input')]");
+	By drpClientPopUp = By.xpath("//input[contains(@id,'prjInfo_yalPrjArea_radYALDropDownList_Input')]");
+	By drpProjectStatus = By.xpath("//input[contains(@id,'PROJECT_STATUS_ID_radYALDropDownList_Input')]");
+	By drpProjectStatusPopUp = By.xpath("//input[contains(@id,'prjInfo_PROJECT_STATUS_ID_radYALDropDownList_Input')]");
+
+	By txtProjectNameSummary = By.xpath("(//*[contains(text(),'Project Name')]/following::td/strong)[1]");
+	By txtProjectCodeSummary = By.xpath("(//*[contains(text(),'Project #')]/following::td/strong)[1]");
+
+	By btnArchieveDot = By
+			.xpath("//input[@name='ctl00$ConPHRightTop$PRDT_UC$radPrjPanels$i0$i0$OBJPROJECTINFO$btnArchive']");
+	By archieveokPopupFrame = By.xpath("//iframe[contains(@name,'confirm')]");
+	By btnUnArchieveDot = By
+			.xpath("//input[@name='ctl00$ConPHRightTop$PRDT_UC$radPrjPanels$i0$i0$OBJPROJECTINFO$btnUnarchive']");
+
+	
+	By clickOnStatus = By.xpath("//div[@id='ctl00_ConPHRightTop_PRDT_UC_radPrjPanels_i0_i0_OBJPROJECTINFO_yddtProjectStatus_RadDropDownTree1']");
+	By addStatus = By.xpath("(//input[@value='Filtering...'])[1]");
+	By clickOnStatusPopUp = By.xpath("//div[@id='prjInfo_yddtProjectStatus_RadDropDownTree1'] ");
+	By addStatusPopUp = By.xpath("//*[@id=\"form1\"]/div[1]/div/div[1]/label/input");
+	By selectStatus = By.xpath("");
+	By closeStatus = By.xpath("//div[@id='ctl00_ConPHRightTop_PRDT_UC_radPrjPanels_i0_i0_OBJPROJECTINFO_yddtProjectStatus_RadDropDownTree1']//span[@class='rddtIcon']");
+	By frmFull = By.xpath("//iframe[@name='radwinAddNewProject']");
+	public void verifySummaryALT() {
+       String getStrProjectName = driver
+				.findElement(By.xpath("(//input[contains(@id,'OBJPROJECTINFO_radPrjName')])[1]")).getAttribute("value");
+
+		String getProjectNameSummary = driver
+				.findElement(By.xpath("//*[contains(@id,'RadPageView')]/..//*[contains(text(),'Project Name')]/..//strong")).getText();
+
+		if (getProjectNameSummary.equals(getStrProjectName)) {
+			System.out.println("Project Name Matched !!!");
+			log("STEP 21: Project Name Matched !!!", Status.PASS);
+		} else {
+			System.out.println("Project Name not Matched");
+			log("STEP 21: Project Name not Matched", Status.FAIL);
+		}
+
+	}
+
+	public void setProjectNumber(String value) {
+		util.inputText(txtProjectNumber, value);
+	}
+	
+	public void setProjectNumberPopUp(String value) {
+		util.inputText(txtProjectNumberPopUp, value);
+	}
+	
+	public void setProjectName(String value) {
+		if (!commonFunction.checkNA(value))
+			util.inputText(txtProjectName, value);
+	}
+	
+	public void setProjectNamePopUp(String value) {
+		if (!commonFunction.checkNA(value))
+			util.inputText(txtProjectNamePopUp, value);
+	}
+
+	By txtCostCenterPopUp = By.xpath("//input[contains(@id,'prjInfo_customFields2_53') and @type='text']");
+	public void setCostCenterPopUp(String value) {
+		if (!commonFunction.checkNA(value))
+			util.inputText(txtCostCenterPopUp, value);
+	}
+	
+	By txtCostCenter = By.xpath("//input[contains(@id,'OBJPROJECTINFO_customFields2_53') and @type='text']");
+	public void setCostCenter(String value) {
+		if (!commonFunction.checkNA(value))
+			util.inputText(txtCostCenter, value);
+	}
+	
+	By txtBudgetItemPopUp = By.xpath("//input[contains(@id,'prjInfo_customFields2_54') and @type='text']");
+	public void setBudgetItemPopUp(String value) {
+		if (!commonFunction.checkNA(value))
+			util.inputText(txtBudgetItemPopUp, value);
+	}
+	
+	By txtBudgetItem = By.xpath("//input[contains(@id,'OBJPROJECTINFO_customFields2_54') and @type='text']");
+	public void setBudgetItem(String value) {
+		if (!commonFunction.checkNA(value))
+			util.inputText(txtBudgetItem, value);
+	}
+	
+	public void setProjectType(String value) {
+		if (!commonFunction.checkNA(value))
+			util.selectValueFromDropdown(drpProjectType, value);
+		util.pressENTERkey();
+	}
+	
+	By firstType = By.xpath("(//*[contains(@id,'OBJPROJECTINFO_yalProjType_radYALDropDownList_DropDown')]/..//li[not(contains(text(),'Select One'))])[1]");
+	By firstTypePopup = By.xpath("(//*[contains(@id,'prjInfo_yalProjType_radYALDropDownList_DropDown')]/..//li[not(contains(text(),'Select One'))])[1]");
+	public void setProjectTypePopUp(String value) {
+		if (!commonFunction.checkNA(value))
+			util.selectValueFromDropdown(drpProjectTypePopUp, value);
+		util.pressENTERkey();
+	}
+	
+	public void setAbbreviation(String value) {
+		if (!commonFunction.checkNA(value))
+			util.inputText(txtAbbreviation, value);
+	}
+
+	public void setAbbreviationPopUp(String value) {
+		if (!commonFunction.checkNA(value))
+			util.inputText(txtAbbreviationPopUp, value);
+	}
+	
+	By firstArea = By.xpath("(//*[contains(@id,'OBJPROJECTINFO_yalPrjArea_radYALDropDownList_DropDown')]/..//li[not(contains(text(),'Select One'))])[1]");
+	By firstAreaPopup = By.xpath("(//*[contains(@id,'prjInfo_yalPrjArea_radYALDropDownList_DropDown')]/..//li[not(contains(text(),'Select One'))])[1]");
+	public void setArea(String value) throws InterruptedException {
+		if (!commonFunction.checkNA(value)) {
+			util.selectValueFromDropdown(drpArea, value);
+		util.waitFor(1000);
+		util.pressENTERkey();}
+
+	}
+
+	public void setAreaPopUp(String value) throws InterruptedException {
+		if (!commonFunction.checkNA(value)) {
+			util.selectValueFromDropdown(drpAreaPopUp, value);
+		util.waitFor(1000);
+		util.pressENTERkey();}
+
+	}
+	
+	public void setClient(String value) {
+		if (!commonFunction.checkNA(value)) {
+			util.selectValueFromDropdown(drpClient, value);
+		util.pressENTERkey();}
+
+	}
+
+	public void setClientPopUp(String value) {
+		if (!commonFunction.checkNA(value)) {
+			util.selectValueFromDropdown(drpClientPopUp, value);
+		util.pressENTERkey();}
+
+	}
+	public void setProjectStatus(String value) {
+		if (!commonFunction.checkNA(value))
+			util.selectValueFromDropdown(drpProjectStatus, value);
+		util.pressENTERkey();
+
+	}
+	
+	public void setProjectStatusPopUp(String value) {
+		if (!commonFunction.checkNA(value))
+			util.selectValueFromDropdown(drpProjectStatusPopUp, value);
+		util.pressENTERkey();
+
+	}
+	
+	public void setProjectStatusROW(String value) {
+		if (!commonFunction.checkNA(value)) {
+			util.click(clickOnStatus);
+			util.inputText(addStatus, value);
+			By selectStatus = By.xpath("//em[contains(text(),'"+value+"')]");
+			util.click(selectStatus);
+		}
+	}
+	
+	By selectStatus1 = By.xpath("(//div[contains(@id,'yddtProjectStatus_RadDropDownTree1_EmbeddedTree')]/..//span[2])[1]");
+	public void setProjectStatusROW() {
+		util.click(clickOnStatus);
+		util.click(selectStatus1);
+	}
+
+	public void setProjectStatusROWPopUp(String value) {
+		if (!commonFunction.checkNA(value)) {
+			util.click(clickOnStatusPopUp);
+			util.inputText(addStatusPopUp, value);
+			By selectStatus = By.xpath("//em[contains(text(),'"+value+"')]");
+			util.click(selectStatus);
+		}
+	}
+	public void setTemporaryROW(String value) {
+		if (!commonFunction.checkNA(value))
+			util.selectValueFromDropdown(drpTemporaryRow, value);
+		util.pressENTERkey();
+
+	}
+
+	public void setTemporaryROWPopUp(String value) {
+		if (!commonFunction.checkNA(value))
+			util.selectValueFromDropdown(drpTemporaryRowPopUp, value);
+		util.pressENTERkey();
+
+	}
+	public void setPermanentROW(String value) {
+		if (!commonFunction.checkNA(value))
+			util.selectValueFromDropdown(drpPermanentRow, value);
+		util.pressENTERkey();
+
+	}
+
+	public void setPermanentROWPopUp(String value) {
+		if (!commonFunction.checkNA(value))
+			util.selectValueFromDropdown(drpPermanentRowPopUp, value);
+		util.pressENTERkey();
+
+	}
+	public void setUnit(String value) {
+		if (!commonFunction.checkNA(value))
+			util.selectValueFromDropdown(drpUnitRow, value);
+		util.pressENTERkey();
+	}
+	
+	public void setUnitPopUp(String value) {
+		if (!commonFunction.checkNA(value))
+			util.selectValueFromDropdown(drpUnitRowPopUp, value);
+		util.pressENTERkey();
+	}
+	
+	public void setSAPCompanyCode(String value) {
+		if (!commonFunction.checkNA(value))
+			util.inputTextAndPressTab(drpCompanyCode, value);
+	}
+	
+	public void setSAPCompanyCodePopUp(String value) {
+		if (!commonFunction.checkNA(value))
+			util.inputTextAndPressTab(drpCompanyCodePopUp, value);
+
+	}
+	
+	public void setSAPPayingEntity(String value) {
+		if (!commonFunction.checkNA(value))
+			util.inputTextAndPressTab(drpPayingEntity, value);
+
+	}
+	
+	public void setSAPPayingEntityPopUp(String value) {
+		if (!commonFunction.checkNA(value))
+			util.inputTextAndPressTab(drpPayingEntityPopUp, value);
+
+	}
+	
+	public void setSAPProjectEntity(String value) {
+		if (!commonFunction.checkNA(value))
+			util.inputTextAndPressTab(drpProjectEntity, value);
+
+	}
+	
+	
+	public void setWBS(String value) {
+		if (!commonFunction.checkNA(value))
+			util.inputTextAndPressTab(drpWBS, value);
+
+	}
+	
+	By drpAccumaticaBranch = By.xpath("//span[text()='Accumatica Branch']/..//input[@type='text']");
+	By drpAccumaticaSubAccount = By.xpath("//span[text()='Accumatica Subaccount']/..//input[@type='text']");
+	
+	public void setAccumaticaBranch(String value) {
+		if (!commonFunction.checkNA(value))
+			util.inputTextAndPressTab(drpAccumaticaBranch, value);
+
+	}
+	
+	public void setAccumaticaSubAccount(String value) {
+		if (!commonFunction.checkNA(value))
+			util.inputTextAndPressTab(drpAccumaticaSubAccount, value);
+
+	}
+	
+	public void setBoardResolution(String value) {
+		if (!commonFunction.checkNA(value))
+			util.selectValueFromDropdown(drpBoardResolution, value);
+		util.pressENTERkey();
+
+	}
+	
+	public void setSAPProjectEntityPopUp(String value) {
+		if (!commonFunction.checkNA(value))
+			util.selectValueFromDropdown(drpProjectEntityPopUp, value);
+		util.pressENTERkey();
+
+	}
+	
+	public void clickOnArchieveButtonROW() throws InterruptedException {
+		Thread.sleep(1000);
+		util.waitUntilElementDisplay(btnArchieveDot);
+		util.click(btnArchieveDot);
+		Thread.sleep(1000);
+		util.waitUntilElementDisplay(archieveOk);
+		util.click(archieveOk);
+
+		if (util.isElementPresent(btnUnArchieveDot)) {
+			log("UnArchieve Present !!!", Status.PASS);
+		} else {
+			log("UnArchieve not Present !!!", Status.FAIL);
+		}
+	}
+
+	By firstStatus = By.xpath("(//*[contains(@id,'OBJPROJECTINFO_PROJECT_STATUS_ID_radYALDropDownList_DropDown')]/..//li[not(contains(text(),'Select One'))])[1]");
+	By firstStatusPopup = By.xpath("(//*[contains(@id,'prjInfo_PROJECT_STATUS_ID_radYALDropDownList_DropDown')]/..//li[not(contains(text(),'Select One'))])[1]");
+	
+	By txtProjectNameDD = By.xpath("//span/parent::div[contains(@id,'ProjectList')]");
+	By CategoryFilter = By.xpath("//input[contains(@class,'rddtFilterEmptyMessage')]");
+
+	public void verifyProject(String value) {
+			util.waitUntilElementDisplay(txtProjectNameDD);
+			util.click(txtProjectNameDD);
+			util.inputText(CategoryFilter, value);			
+	}
+	
+	public void addProjectInformation(Map<String, String> map,String testCaseName) throws InterruptedException {
+		try {
+			commonFunction.navigateToProjectDeails();
+			log("STEP 1: User can navigate to the Project details", Status.PASS);
+		} catch (Exception e) {
+			log("STEP 1: User cannot see the option in Menu ", Status.FAIL);
+			throw new RuntimeException("Failed in step 1");
+		}
+		
+		try {
+			verifyProject(map.get(Excel.ProjectName));
+			log("STEP 1: User can navigate to the Project details", Status.PASS);
+		} catch (Exception e) {
+			log("STEP 1: User cannot see the option in Menu ", Status.FAIL);
+			throw new RuntimeException("Failed in step 1");
+		}
+		By project = By
+				.xpath("//div[contains(@id,'ProjectList_EmbeddedTree')]//*[contains(text(),'" + map.get(Excel.ProjectName) + "')]");
+		if(!util.isElementVisible(project)) {
+		try {
+			commonFunction.clickOnAddButton();
+			log("STEP 2: User can click on the add button", Status.PASS);
+		} catch (Exception e) {
+			log("STEP 2: User cannot click on the add button  ", Status.FAIL);
+			throw new RuntimeException("Failed in step 2");
+		}
+		
+		if(util.isElementPresent(frmFull)){
+			util.switchToIframe(frmFull);
+			
+			try {
+				setProjectNamePopUp(map.get(Excel.ProjectName));
+				log("STEP 3: User can enter the value in the Project Name field ", Status.PASS);
+			} catch (Exception e) {
+				log("STEP 3: User cannot add value in the Project Name field ", Status.FAIL);
+				throw new RuntimeException("Failed in step 3");
+			}
+			try {
+				setProjectNumberPopUp(map.get(Excel.ProjectNumber));		
+				log("STEP 4: User can enter the value in the Project number  field", Status.PASS);
+			} catch (Exception e) {
+				log("STEP 4:  User cannot add value in the Project Number field ", Status.FAIL);
+				throw new RuntimeException("Failed in step 4");
+			}
+			try {
+				util.waitUntilElementDisplay(drpProjectTypePopUp);
+				util.click(drpProjectTypePopUp);	
+				util.click(firstTypePopup);
+				log("STEP 5:  User can select value from the Project Type DD", Status.PASS);
+			} catch (Exception e) {
+				log("STEP 5:  User cannot select value from the Project Type DD", Status.FAIL);
+				throw new RuntimeException("Failed in step 5");
+			}
+			
+			if(util.isElementPresent(txtAbbreviationPopUp)) {
+			try {
+				setAbbreviationPopUp(map.get(Excel.Abbreviation));
+				log("STEP 6:  User can enter Abbreviation value in the field    ", Status.PASS);
+			} catch (Exception e) {
+				log("STEP 6: User cannot add Abbreviation value in the field  ", Status.FAIL);
+				throw new RuntimeException("Failed in step 6");
+			}
+			}
+			
+			try {
+				util.waitUntilElementDisplay(drpAreaPopUp);
+				util.click(drpAreaPopUp);	
+				util.click(firstAreaPopup);
+				log("STEP 7: User can select Area value from the DD", Status.PASS);
+			} catch (Exception e) {
+				log("STEP 7: User cannot select Area value from the DD ", Status.FAIL);
+				throw new RuntimeException("Failed in step 7");
+			}
+		
+			if(testCaseName.contains("ROW") || testCaseName.contains("TRA") || testCaseName.contains("DOM")) {
+				try {
+					setProjectStatusROWPopUp(map.get(Excel.ProjectStatus));
+					log( "STEP 8: Added Project Status value displays in the field", Status.PASS);
+				} catch (Exception e) {
+					log("STEP 8: User cannot Select Project Status value from the DD", Status.FAIL);
+					throw new RuntimeException("Failed in step 8");
+				}
+			}
+			else {
+				try {
+					util.waitUntilElementDisplay(drpProjectStatusPopUp);
+					util.click(drpProjectStatusPopUp);	
+					util.click(firstStatusPopup);
+					log( "STEP 8: Added Project Status value displays in the field", Status.PASS);
+				} catch (Exception e) {
+					log("STEP 8: User cannot Select Project Status value from the DD", Status.FAIL);
+					throw new RuntimeException("Failed in step 89");
+				}
+				
+			}
+		
+			if(testCaseName.contains("ROW") || testCaseName.contains("TRA") || testCaseName.contains("DOM")) {
+				if(util.isElementPresent(drpTemporaryRowPopUp)) {
+			try {
+				setTemporaryROWPopUp(map.get(Excel.TemporaryROW));
+				log("STEP 9 : Added TemporaryROW value displays in the field", Status.PASS);
+			} catch (Exception e) {
+				log("STEP 9 : User cannot select  TemporaryROW value from the DD", Status.FAIL);
+				throw new RuntimeException("Failed in step 9");
+			}
+				}
+				
+				if(util.isElementPresent(drpPermanentRowPopUp)) {
+			try {
+				setPermanentROWPopUp(map.get(Excel.PermanentROW));
+				log("STEP 10 : Added PermanentROW value displays in the field", Status.PASS);
+			} catch (Exception e) {
+				log("STEP 10 : User cannot Select PermanentROW value from the DD", Status.FAIL);
+				throw new RuntimeException("Failed in step 10");
+			}
+				}
+				if(util.isElementPresent(drpUnitRowPopUp)) {
+			try {
+				setUnitPopUp(map.get(Excel.Unit));
+				log("STEP 11 : Added Unit value displays in the field", Status.PASS);
+			} catch (Exception e) {
+				log("STEP 11 : User cannot Select Unit value from the DD", Status.FAIL);
+				throw new RuntimeException("Failed in step 11");
+			}
+				}
+			}
+			try {
+				setSAPCompanyCodePopUp(map.get(Excel.CompanyCode));
+				log("STEP 12 : Added SAP Company Code value displays in the field", Status.PASS);
+			} catch (Exception e) {
+				log("STEP 12 : User cannot Select SAP Company Code value from the DD ", Status.FAIL);
+				throw new RuntimeException("Failed in step 12");
+			}
+			try {
+				setSAPPayingEntityPopUp(map.get(Excel.PayingEntity));
+				log("STEP 13 : Added SAP Paying Entity value displays in the field", Status.PASS);
+			} catch (Exception e) {
+				log("STEP 13 : User cannot select SAP Paying Entity value from the DD", Status.FAIL);
+				throw new RuntimeException("Failed in step 13");
+			}
+			try {
+				setSAPProjectEntityPopUp(map.get(Excel.ProjectEntity));
+				log("STEP 14 : Added SAP Project Entity value displays in the field", Status.PASS);
+			} catch (Exception e) {
+				log("STEP 14 : User cannot Select SAP Project Entity value from the DD", Status.FAIL);
+				throw new RuntimeException("Failed in step 14");
+			}
+			
+			
+			try {
+				commonFunction.clickOnInsertAndClose();
+				util.switchToDefaultContent();;
+				log("STEP 15: User can click on Insert and Close Button", Status.PASS);
+			} catch (Exception e) {
+				log("STEP 15: User cannot click on Insert and Close Button ", Status.FAIL);
+				throw new RuntimeException("Failed in step 15");
+			}
+		}
+		else 
+		{
+		try {
+			setProjectName(map.get(Excel.ProjectName));
+			log("STEP 3: User can enter the value in the Project Name field ", Status.PASS);
+		} catch (Exception e) {
+			log("STEP 3: User cannot add value  to the Project Name field ", Status.FAIL);
+			throw new RuntimeException("Failed in step 3");
+		}
+		try {
+			setProjectNumber(map.get(Excel.ProjectNumber));
+			log("STEP 4: User can enter value in the Project number  field", Status.PASS);
+		} catch (Exception e) {
+			log("STEP 4:  User cannot add value  to the Project Number field ", Status.FAIL);
+			throw new RuntimeException("Failed in step 4");
+		}
+		try {
+			util.waitUntilElementDisplay(drpProjectType);
+			util.click(drpProjectType);	
+			util.click(firstType);
+			log("STEP 5:  Added value displays in the Project Type field", Status.PASS);
+		} catch (Exception e) {
+			log("STEP 5:  User  cannot select  value  from the Project Type DD ", Status.FAIL);
+			throw new RuntimeException("Failed in step 5");
+		}
+		
+		if(util.isElementPresent(txtAbbreviation)) {
+		try {
+			setAbbreviation(map.get(Excel.Abbreviation));
+			log("STEP 6:  User can enter Abbreviation value in the field    ", Status.PASS);
+		} catch (Exception e) {
+			log("STEP 6: User cannot add Abbreviation value in the field  ", Status.FAIL);
+			throw new RuntimeException("Failed in step 6");
+		}
+		}
+		
+		try {
+			util.waitUntilElementDisplay(drpArea);
+			util.click(drpArea);	
+			util.click(firstArea);
+			log("STEP 7 : Added Client value displays in the field", Status.PASS);
+		} catch (Exception e) {
+			log("STEP 7 :  User cannot Select Client value from the DD ", Status.FAIL);
+			throw new RuntimeException("Failed in step 7");
+		}
+		if(testCaseName.contains("ROW") || testCaseName.contains("TRA") || testCaseName.contains("DOM")) {
+			try {
+				setProjectStatusROW();
+				log( "STEP 8 : Added Project Status value displays in the field", Status.PASS);
+			} catch (Exception e) {
+				log("STEP 8 : User cannot select Project Status value from the DD ", Status.FAIL);
+				throw new RuntimeException("Failed in step 8");
+			}
+		}
+		else {
+			if(!environment.contains("NOVA")) {
+			try {
+				util.waitUntilElementDisplay(drpProjectStatus);
+				util.click(drpProjectStatus);	
+				util.click(firstStatus);
+				log( "STEP 9 : Added Project Status value displays in the field", Status.PASS);
+			} catch (Exception e) {
+				log("STEP 9 : User cannot select Project Status value from the DD ", Status.FAIL);
+				throw new RuntimeException("Failed in step 9");
+			}
+			}
+		}
+		if(testCaseName.contains("ROW") || testCaseName.contains("TRA") || testCaseName.contains("DOM")) {
+			if(util.isElementVisible(drpTemporaryRow)) {
+		try {
+			setTemporaryROW(map.get(Excel.TemporaryROW));
+			log("STEP 10 : Added TemporaryROW value displays in the field", Status.PASS);
+		} catch (Exception e) {
+			log("STEP 10 : User cannot select TemporaryROW value from the DD ", Status.FAIL);
+			throw new RuntimeException("Failed in step 10");
+		}
+			}
+			
+			if(util.isElementVisible(drpPermanentRow)) {
+		try {
+			setPermanentROW(map.get(Excel.PermanentROW));
+			log("STEP 11 : Added PermanentROW value displays in the field", Status.PASS);
+		} catch (Exception e) {
+			log("STEP 11 : User cannot select PermanentROW value from the DD ", Status.FAIL);
+			throw new RuntimeException("Failed in step 11");
+		}
+			}
+			
+			if(util.isElementPresent(drpBoardResolution)) {
+				try {
+					setBoardResolution(map.get(Excel.BoardResolutionROW));
+					log("STEP 12 : User should be able to select the Board Resolution", Status.PASS);
+				} catch (Exception e) {
+					log("STEP 12 : User cannot Select board resolution value from the DD", Status.FAIL);
+					throw new RuntimeException("Failed in step 12");
+				}
+					}
+			
+			
+			if(util.isElementVisible(drpUnitRow)) {
+		try {
+			setUnit(map.get(Excel.Unit));
+			log("STEP 13 : Added Unit value displays in the field", Status.PASS);
+		} catch (Exception e) {
+			log("STEP 13 : User cannot select value from the Unit DD ", Status.FAIL);
+			throw new RuntimeException("Failed in step 13");
+		}
+			}
+		}
+		try {
+			setSAPCompanyCode(map.get(Excel.CompanyCode));
+			log("STEP 14 : Added SAP Company Code value displays in the field", Status.PASS);
+		} catch (Exception e) {
+			log("STEP 14 : User cannot select value from the SAP Company code DD", Status.FAIL);
+			throw new RuntimeException("Failed in step 14");
+		}
+		try {
+			setSAPPayingEntity(map.get(Excel.PayingEntity));
+			log("STEP 15 : Added SAP Paying Entity value displays in the field", Status.PASS);
+		} catch (Exception e) {
+			log("STEP 15 : User cannot select value from the SAP Paying Entity DD", Status.FAIL);
+			throw new RuntimeException("Failed in step 15");
+		}
+		try {
+			setSAPProjectEntity(map.get(Excel.ProjectEntity));
+			log("STEP 16 : Added SAP Project Entity value displays in the field", Status.PASS);
+		} catch (Exception e) { 
+			log("STEP 16 : User cannot select value from the SAP Project Entity DD ", Status.FAIL);
+			throw new RuntimeException("Failed in step 16");
+		}
+		
+		if(util.isElementVisible(drpWBS)) {
+		try {
+			setWBS(map.get("WBS"));
+			log("STEP 17 : Added WBS value displays in the field", Status.PASS);
+		} catch (Exception e) { 
+			log("STEP 17 : User cannot select value from the WBS DD ", Status.FAIL);
+			throw new RuntimeException("Failed in step 17");
+		}
+		}
+		
+		if(environment.contains("NOVA")) {
+			try {
+				setAccumaticaBranch(map.get("AccumaticaBranch"));
+				log("STEP 18 : User can select accumatica branch", Status.PASS);
+			} catch (Exception e) { 
+				log("STEP 18 : User cannot select accumatica branch ", Status.FAIL);
+				throw new RuntimeException("Failed in step 18");
+			}
+		
+			try {
+				setAccumaticaSubAccount(map.get("AccumaticaSubAccount"));
+				log("STEP 19 :  User can select accumatica sub account", Status.PASS);
+			} catch (Exception e) { 
+				log("STEP 19 : User cannot select accumatica sub account ", Status.FAIL);
+				throw new RuntimeException("Failed in step 19");
+			}
+			}
+		
+		try {
+			commonFunction.clickOnSaveButton();
+			log("STEP 20: User can click on Save button", Status.PASS);
+		} catch (Exception e) {
+			log("STEP 20: User can not click on save button ", Status.FAIL);
+			throw new RuntimeException("Failed in step 20");
+		}
+		}
+		util.dummyWait(3);
+		}
+		else {
+			util.click(project);
+			util.dummyWait(3);
+			log("Project Already Present ", Status.SKIP);
+		}
+		
+		if(!environment.contains("DOM")) {
+		verifySummaryALT();
+		}
+	}
+
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite">
+
+	<parameter name="env" value="${env}" />
+
+     <test name="Administration_ReportAdministration">
+		<classes>
+			 <class name="testsuit.Administration_ReportAdministration.ReportManagementTest" />
+			<class name="testsuit.Administration_ReportAdministration.ReportSchedulerTest" />
+			<class name="testsuit.Administration_ReportAdministration.ReportConfigurationTest" />
+		</classes>
+	</test>
+	
+	
+	
+	
+</suite> <!-- Suite -->
+

@@ -1,0 +1,28 @@
+userName: chetanagrawal_H7MKdD
+accessKey: VYgBy5g5i4fWJAyRKi9z
+autoWait: 0
+ 
+parallelsPerPlatform: 1
+framework: testng
+source: java:eclipse:v1.0.8
+buildName: ILM_WEB_REGRESSION_BUILD
+buildIdentifier: '#${BUILD_NUMBER}'
+debug: false
+networkLogs: false
+consoleLogs: "errors"
+ 
+platforms:
+  - os: Windows
+    osVersion: 10
+    browserName: Edge
+    browserVersion: latest
+ 
+    "ms:edgeOptions":
+      args:
+        - "--disable-features=AppBannerPrompt,PwaInstallPrompt"
+        - "--disable-popup-blocking"
+        - "--disable-notifications"
+        - "--disable-infobars"
+ 
+    "bstack:options":
+      seleniumVersion: "4.19.1"

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite">
+
+	<parameter name="env" value="${env}" />
+
+     <test name="CustomerOutreach"> 
+		<classes>
+			 <class name="testsuit.CustomerOutreach.AddNewTicketTest" />
+			<class name="testsuit.CustomerOutreach.AddCustomerOutreachNotesTest" />
+			<class name="testsuit.CustomerOutreach.SerachCustomerOutreachTicketsTest" /> 
+			<class name="testsuit.CustomerOutreach.CustomerOutreachSpecialPermissionTest" />
+		</classes>
+	</test>
+	
+	
+</suite> <!-- Suite -->
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite">
+
+	<parameter name="env" value="${env}" />
+
+     <test name="Administration_ReportAdministration">
+		<classes>
+			 <class name="testsuit.Administration_ReportAdministration.ReportManagementTest" />
+			<class name="testsuit.Administration_ReportAdministration.ReportSchedulerTest" />
+			<class name="testsuit.Administration_ReportAdministration.ReportConfigurationTest" />
+		</classes>
+	</test>
+	
+	<test name="SSRSReports">
+		<classes>
+			 <class name="testsuit.SSRSReports.AgreementReportTest" />
+			<class name="testsuit.SSRSReports.ALT006_ALT019_InfoByParcelsReport" />
+			<class name="testsuit.SSRSReports.ATWELL03_C_ReportTest" />
+			<class name="testsuit.SSRSReports.C006_MilestoneTrackingByProjectReportTest" />
+			<class name="testsuit.SSRSReports.ReportsCategoryTest" />
+		</classes>
+	</test>
+	
+	
+</suite> <!-- Suite -->
+

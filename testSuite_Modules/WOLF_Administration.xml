@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite">
+
+	<parameter name="env" value="${env}" />
+
+	<test name="AdministrationSecurity">
+		<classes>
+			<class name="testsuit.adminSecurity.UserAccount_AddNewUserTest" />
+			<class name="testsuit.adminSecurity.ManageUser_AddNewUserTest" />
+			<!--<class name="testsuit.adminSecurity.UserRole_PagePermissionTest" />-->
+			<class name="testsuit.adminSecurity.UserRole_SpecialPermissionTest" />
+			<class name="testsuit.adminSecurity.UserRole_TemplatePermissionTest" />
+		</classes>
+	</test>
+
+	<test name="AdministrationTemplate">
+		<classes>
+			<class name="testsuit.AdministrationTemplate.AddNewTemplateTest" />
+		</classes>
+	</test>
+
+	<test name="AdministrationConfiguration">
+		<classes>
+			<class name="testsuit.AdministrationConfiguration.PermitAgenciesTest" />
+			<class name="testsuit.AdministrationConfiguration.ContractCompaniesTest" />
+			<class name="testsuit.AdministrationConfiguration.GroupListTest" />
+		</classes>
+	</test>
+	
+	
+	
+	
+</suite> <!-- Suite -->
+

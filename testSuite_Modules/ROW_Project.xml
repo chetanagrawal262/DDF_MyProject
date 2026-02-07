@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite">
+
+	<parameter name="env" value="${env}" />
+
+     <test name="ProjectDetails">
+		<classes>
+			  <class name="testsuit.Project.AddProjectTest" />
+			 <class name="testsuit.Project.AddProjectAssignmentTest" />
+			<class name="testsuit.Project.AddKeyDateTest" />
+			<class name="testsuit.Project.AddProjectPermitTest" />
+			<class name="testsuit.Project.AddOpertaingCompanyTest" />
+			<class name="testsuit.Project.AddProjectWorkflowTest" />
+			<class name="testsuit.ProjectDocuments.AddDocumentTest"/>
+			<class name="testsuit.ProjectNotes.AddProjectNotesTest"/>
+			<class name="testsuit.ProjectContact.AddContactTest"/>
+			<class name="testsuit.TicketAssociation.AddNewTicketTest"/> 
+		</classes>
+	</test>
+	
+	<test name="ProjectDocGen">
+		<classes>
+			<class name="testsuit.ProjectDocumentGeneration.ProjectGenerateDocumentTest"/>
+		</classes>
+	</test>
+	
+	<test name="ProjectGroup">
+		<classes>
+			 <class name="testsuit.ProjectGroup.AddProjectGroupTest" /> 
+		</classes>
+	</test>
+	
+	
+</suite> <!-- Suite -->
+
